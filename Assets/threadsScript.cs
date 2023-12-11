@@ -8,7 +8,7 @@ public class threadsScript : MonoBehaviour
 
     public float[] correctRotation;
     [SerializeField]
-    bool isPlaced = false;
+    bool isPlaced = false;  
 
     int PossibleRots = 1;
 
@@ -24,7 +24,7 @@ public class threadsScript : MonoBehaviour
         int rand = Random.Range(0, rotations.Length);
         transform.eulerAngles = new Vector3(0,0,rotations[rand]);
 
-        if(PossibleRots > 1)
+        if(PossibleRots > 1) //답이 2개 이상인 애
         {
             if (transform.eulerAngles.z == correctRotation[0] || transform.eulerAngles.z == correctRotation[1]) //correctRotation size가 2개 있는 경우 즉 -180과 0도 가 있다
             {
@@ -33,7 +33,7 @@ public class threadsScript : MonoBehaviour
 
             }
         }
-        else{
+        else{ // 1 이하
             if (transform.eulerAngles.z == correctRotation[0])      //curve같은 지정각도가 하나만 있는 경우 
             {
                 isPlaced = true;
